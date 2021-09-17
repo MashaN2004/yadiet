@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple PWA</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<body  class="bg-yellow-50 ">
+  <div class="flex flex-col justify-center items-center content-center">
+    <div class="flex w-80 my-6">
+        <div class="order-first">
+          <p class="text-4xl">Главная</p>
+        </div>
+        <div class="ml-32">
+          <a href="profile.html" class="">
+            <img src="icons/human.jpg" alt="" class="bg-cover bg-center w-14 h-14 rounded-full border-yellow-400 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+          </a>
+        </div>
+    </div>
+    <hr class="bg-grey-100 my-1"/>
+    <div class="flex flex-col items-center p-2 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 bg-cover bg-center w-80 h-52 my-5" style="background-image: url(icons/fonwater.png)">
+      <div class=""><h3 class="text-white text-center text-2xl w-80">Цель на сегодня:</h3></div>
+      <div class="flex">
+        <div style="background-image: url(icons/cup.png)" class="w-28 mt-6 ml-4 bg-cover bg-center h-32 cup">
+          <h2 class="text-white text-center text-2xl mt-10 water">10%</h2>
+        </div>
+        <div class="flex flex-col">
+          <p class="text-white text-center mt-8 ">количество воды ml
+          </p>  
+          <div style="background-image: url(icons/bluefon.png)"  class="w-36 mt-6 mr-4 bg-cover bg-center h-6">
+            <p class="text-white text-center countwater">200/1925
+            </p>  
+          </div>
+        </div>
+      </div>
+        
+          
+    </div>
+    <div class="space-y-4 mt-7 ">
+      <span class="block w-80 rounded bg-white">
+        <h3 class="text-white text-center  text-2xl rounded w-80 bg-gradient-to-r from-green-400 via-green-600 to-green-400 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">Завтрак</h3>
+        <div class="whitespace-norma bg-white rounded">
+          <p class="text-2xl w-80 my-2 p-2">Гречневая каша с грибами</p>
+        </div>
+      </span>
+      <span class="block w-80 rounded bg-white">
+        <h3 class="text-white text-center text-2xl rounded w-80 bg-gradient-to-r from-green-400 via-green-600 to-green-400 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">Обед</h3>
+        <div class="whitespace-norma bg-white rounded">
+          <p class="text-2xl w-80 my-2 p-2">Салат из свежей капусты, огурцов, помидор + Куриное филе на пару</p>
+        </div>
+      </span>
+      <span class="block w-80 rounded bg-white">
+        <h3 class="text-white text-center text-2xl rounded w-80 bg-gradient-to-r from-green-400 via-green-600 to-green-400 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">Ужин</h3>
+        <div class="whitespace-norma bg-white rounded">
+          <p class="text-2xl w-80 my-2 p-2 ">Запеченная рыба</p>
+        </div>
+      </span>
+      <a href="sugm.html">
+        <span class="block w-80 h-16 my-5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 rounded  shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+          <h1 class="text-white text-center text-2xl pt-4" >Недельное питание</h1>
+        </span>
+      </a>
+      <a href="bookofills.html">
+        <span class="block bg-cover bg-center w-80 h-32 my-5 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500" style="background-image: url(icons/orange.png)">
+        </span>
+      </a>
+      
+      
+    </div>
+  </div>
+  <script type="text/javascript">
+    let cup = document.querySelector(".cup");
+    let water = document.querySelector(".water");
+    let countwater = document.querySelector(".countwater");
+    let prosents = 0;
+    let ml = 0;
+    water.innerHTML = prosents + '%';
+    countwater.innerHTML = ml + '/1950';
+    cup.onclick = function(){
+      prosents = prosents + 10;
+      ml = ml + 200;
+      water.innerHTML = prosents + '%';
+      countwater.innerHTML = ml + '/1950';
+      if(prosents>100){
+        prosents = 0;
+        ml = 0;
+        water.innerHTML = prosents + '%';
+        countwater.innerHTML = ml + '/1950';
+        cup.style.backgroundImage="url(icons/cup.png)";
+      }
+      if(prosents==40){
+        cup.style.backgroundImage="url(icons/2.png)";
+      }
+      if(prosents==60){
+        cup.style.backgroundImage="url(icons/3.png)";
+      }
+      if(prosents==80){
+        cup.style.backgroundImage="url(icons/4.png)";
+      }
+      if(prosents==100){
+        cup.style.backgroundImage="url(icons/5.png)";
+      }
+    }
+    setInterval(timer, 30000)
+    function timer(){
+      prosents = 0;
+      ml = 0;
+      water.innerHTML = prosents + '%';
+      countwater.innerHTML = ml + '/1950';
+      cup.style.backgroundImage="url(icons/cup.png)";
+    }
+  </script>
+</body>
+</html>
